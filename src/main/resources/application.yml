@@ -1,0 +1,35 @@
+--- 
+server: 
+  port: 8082
+spring: 
+  datasource: 
+    driverClassName: com.ibm.as400.access.AS400JDBCDriver
+    password: qwerty123
+    url: "jdbc:as400://10.140.0.215;libraries=AZBASWQA;"
+    username: VISORTRX
+
+##Info
+info:
+    app:
+        description: '@project.description@'
+        encoding: '@project.build.sourceEncoding@'
+        java:
+            version: '@java.version@'
+        name: '@project.name@'
+        version: '@project.version@'
+logging:
+    file: 'visor-transacciones/logs/spring.log'        
+
+##Confifuracion Actuator    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"    
+  endpoint:
+    health:
+      show-details: ALWAYS
+      sensitive: "*"      
